@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ubuyashiki Estate - Lobby</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#f9f506",
+            "background-light": "#f8f8f5",
+            "background-dark": "#23220f",
+            "slayer-ink": "#1e293b", // Adapted from request for text
+          },
+          fontFamily: {
+            "display": ["Spline Sans", "sans-serif"]
+          },
+          borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    /* Custom Scrollbar for the "Scroll" aesthetic */
+    .scroll-container::-webkit-scrollbar {
+      width: 6px;
+    }
+    .scroll-container::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .scroll-container::-webkit-scrollbar-thumb {
+      background-color: #e5e5e5;
+      border-radius: 20px;
+    }
+    .material-symbols-outlined {
+      font-variation-settings:
+      'FILL' 1,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased min-h-screen flex flex-col overflow-hidden">
+<div class="flex h-screen w-full gap-6 p-4 lg:p-6">
+<!-- LEFT SIDEBAR (Scroll Style) -->
+<!-- Styled to look like a separate parchment/scroll element -->
+<aside class="hidden lg:flex flex-col w-64 bg-white dark:bg-[#2a2918] h-full rounded-xl shadow-sm border border-[#e5e5e0] dark:border-[#3a3920] relative overflow-hidden">
+<!-- Decorative top edge of scroll -->
+<div class="h-2 w-full bg-[#f4f4e6] dark:bg-[#3a3920]"></div>
+<div class="flex flex-col flex-1 p-6 justify-between">
+<div>
+<!-- Header / Identity -->
+<div class="flex items-center gap-3 mb-10">
+<div class="bg-center bg-no-repeat bg-cover rounded-full h-12 w-12 border-2 border-primary" data-alt="Clan crest symbol with wisteria patterns" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAdNT_DNnPmJ8LCkOVFcx_YJcIs5cjb6z6Xh1qgOd9FCKo6C0Ah9PTCYHT0PTkOJPxwMOC-14ohQyXEQzPczUgYaTTEElxrBjrZ14WW0Y2Wmc0sXH09WyYzkPlM0z4y7bfqjloql05y3aifbNYdznEFT3qNr_fOusLWFkvmEN1d5xCpfIuui2btF49hGBvYpgcVlRng39HAeWQQ39mHH43eI8XbBDzs-akOHNyqo9Xlfwtbpp2WFbeEOrg3g87TWJRKI5O0soosesWa");'></div>
+<div class="flex flex-col">
+<h1 class="text-slayer-ink dark:text-white text-lg font-bold leading-tight">Ubuyashiki</h1>
+<p class="text-gray-500 dark:text-gray-400 text-xs font-medium uppercase tracking-wider">Estate Lobby</p>
+</div>
+</div>
+<!-- Navigation -->
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-4 px-4 py-3 rounded-full bg-primary text-slayer-ink shadow-sm transition-transform hover:scale-[1.02]" href="#">
+<span class="material-symbols-outlined">swords</span>
+<span class="text-sm font-bold">Play</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-full hover:bg-[#f4f4e6] dark:hover:bg-[#3a3920] text-gray-700 dark:text-gray-200 transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-sm font-medium">Profile</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-full hover:bg-[#f4f4e6] dark:hover:bg-[#3a3920] text-gray-700 dark:text-gray-200 transition-colors" href="#">
+<span class="material-symbols-outlined">trophy</span>
+<span class="text-sm font-medium">Leaderboard</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-full hover:bg-[#f4f4e6] dark:hover:bg-[#3a3920] text-gray-700 dark:text-gray-200 transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+</div>
+<!-- Footer / Connection Status -->
+<div class="flex items-center justify-between px-4 py-3 bg-[#f8f8f5] dark:bg-[#32311d] rounded-full border border-gray-100 dark:border-none">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-orange-500" style="font-size: 20px;">emoji_objects</span>
+<span class="text-xs font-semibold text-slayer-ink dark:text-white">Connected</span>
+</div>
+<div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+</div>
+</div>
+<!-- Decorative bottom edge -->
+<div class="h-2 w-full bg-[#f4f4e6] dark:bg-[#3a3920]"></div>
+</aside>
+<!-- CENTER ACTION AREA -->
+<main class="flex-1 flex flex-col gap-6 h-full overflow-y-auto scroll-container pr-2">
+<!-- Header / Daily Wisdom -->
+<header class="w-full">
+<div class="relative w-full rounded-xl overflow-hidden min-h-[180px] flex flex-col justify-end group cursor-default">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Serene Japanese garden with wisteria flowers hanging down" style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 60%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCWDTWhBADgCrV7u735HBr0pS-exUiPYP3TmNefIMxb5U2_DIk-KBwYu6js6MvkL698ACKaxDKxV7AbRU5YoN8PpGibaDFlZF2a9qLQaMgdEHGEXNiBE_xdljDkMuW4Lw1jGAkJiGO45mkwOsD1svNv4weu6nyoGBHlDH-vWXUOQbxrBelmsTyh8GkLRWIA4aPcDCBo_RRMFlqraV8mcZK2rOrVD6bqnYhPAQGD0HSGO6nO38If9UHqPQp7PwWS0orbmY6zRaHrbcSy");'>
+</div>
+<div class="relative p-6 md:p-8">
+<div class="flex items-center gap-2 mb-2 text-primary/90">
+<span class="material-symbols-outlined text-sm">auto_awesome</span>
+<span class="text-xs font-bold uppercase tracking-widest">Daily Wisdom</span>
+</div>
+<p class="text-white text-2xl md:text-3xl font-bold leading-tight font-display italic">
+              "The human spirit is strong... it is the only thing that is eternal."
+            </p>
+</div>
+</div>
+</header>
+<!-- Quick Match Card -->
+<section class="w-full">
+<div class="bg-white dark:bg-[#2a2918] p-4 rounded-xl shadow-sm border border-[#e5e5e0] dark:border-[#3a3920]">
+<div class="flex flex-col md:flex-row items-center gap-6">
+<!-- Image Area -->
+<div class="w-full md:w-1/3 aspect-video md:aspect-square bg-[#f4f4e6] dark:bg-[#3a3920] rounded-lg overflow-hidden relative group">
+<div class="w-full h-full bg-center bg-contain bg-no-repeat scale-90 group-hover:scale-100 transition-transform duration-500" data-alt="Stylized Kasugai Crow illustration in ink wash style" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAn630KeQNyXazLa2s_iUcJ7rCUs2xNyiAqIO0f4RJLq8zKjdDXuDV-h8wzY5I39TiVOEcb_Abvse_rX3egIy4551ktZ7hckN4mmNetZ2MisbF3CQssJyq9xlLrXF9f3OXIANIycWLqSdrR55Z68CXk-3-LgWhqRXR5Jlx_LbO4x-xg4dPFRSkg7kXo0obKkm9KgdZu5CPewxyhA_K52XzvzOvGc9gmlUTs_hlwN9e5dv-xiydd3F56NqaIuLvU1wIi0QJSOLGxS5xs");'></div>
+<div class="absolute top-2 left-2 bg-slayer-ink text-white text-[10px] font-bold px-2 py-1 rounded-full">
+                RANKED
+              </div>
+</div>
+<!-- Content Area -->
+<div class="flex-1 flex flex-col w-full text-center md:text-left">
+<h2 class="text-2xl font-bold text-slayer-ink dark:text-white mb-2">Quick Match</h2>
+<p class="text-gray-500 dark:text-gray-400 mb-6 text-sm">
+                Find a worthy opponent instantly. Standard rules, 10 minute rapid chess. prove your strength to the Hashira.
+              </p>
+<div class="flex flex-wrap justify-center md:justify-start gap-4">
+<button class="flex items-center justify-center gap-2 bg-primary hover:bg-[#e6e205] text-slayer-ink font-bold py-3 px-8 rounded-full transition-all shadow-[0_4px_0_rgb(0,0,0,0.1)] active:shadow-none active:translate-y-[2px]">
+<span class="material-symbols-outlined">search</span>
+                  Find Match
+                </button>
+<button class="flex items-center justify-center gap-2 bg-[#f4f4e6] dark:bg-[#3a3920] hover:bg-[#ececcf] text-slayer-ink dark:text-white font-medium py-3 px-6 rounded-full transition-colors">
+<span class="material-symbols-outlined">tune</span>
+                  Options
+                </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Custom Room / CTA Section -->
+<section class="w-full flex-1 min-h-[200px]">
+<div class="bg-[#1e293b] dark:bg-[#151d2a] rounded-xl p-8 md:p-12 flex flex-col items-center justify-center text-center relative overflow-hidden h-full">
+<!-- Background Pattern decorative -->
+<div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 20px 20px;"></div>
+<div class="relative z-10 max-w-lg w-full">
+<span class="material-symbols-outlined text-primary mb-4 text-4xl">meeting_room</span>
+<h3 class="text-white text-3xl font-bold mb-2">Custom Room</h3>
+<p class="text-slate-400 mb-8">Enter a scroll code to join a private game with a friend.</p>
+<div class="flex flex-col sm:flex-row gap-2 w-full">
+<div class="relative flex-1">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-slate-500">key</span>
+</div>
+<input class="block w-full pl-10 pr-4 py-4 rounded-full bg-white/10 border-transparent text-white placeholder-slate-400 focus:border-primary focus:bg-white/20 focus:ring-0 sm:text-sm font-medium transition-all" placeholder="Enter Code (e.g. KIB-123)" type="text"/>
+</div>
+<button class="bg-primary text-slayer-ink font-bold py-4 px-8 rounded-full hover:bg-white transition-colors flex items-center justify-center gap-2">
+<span>Join</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- RIGHT SIDEBAR (Friends/Active Slayers) -->
+<aside class="hidden xl:flex flex-col w-72 bg-white dark:bg-[#2a2918] h-full rounded-xl shadow-sm border border-[#e5e5e0] dark:border-[#3a3920] p-6">
+<h3 class="text-slayer-ink dark:text-white text-lg font-bold mb-6 flex items-center gap-2">
+        Active Slayers
+        <span class="bg-[#f4f4e6] dark:bg-[#3a3920] text-xs font-bold px-2 py-1 rounded-full text-slate-600 dark:text-slate-300">4</span>
+</h3>
+<div class="flex flex-col gap-4 overflow-y-auto scroll-container flex-1">
+<!-- Friend Item 1 -->
+<div class="flex items-center gap-3 p-2 rounded-lg hover:bg-[#f8f8f5] dark:hover:bg-[#32311d] transition-colors cursor-pointer group">
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-cover bg-center border-2 border-white dark:border-[#2a2918] shadow-sm" data-alt="Avatar of Zenitsu" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCXVcBQIV3csEhskI97_quGE2IOl13gRtyORjaZJW6dHQNeW8GVytUQfBF0aOSJ11mKnKXfPvFWbrFkzRatzSbsyCLvPWUVTivvEWxaUZbp4_IViY1KMOL7UcUUs2oRikFaILSrBFzxg6IBc61_Zh19XPCRItbLi5BzBanyGuuGZKAfAGBMrKrbTQfMeMTmCoMfUQ8YpaafBreyfBqivp1vmbAyevuWhfsz8NIO547wVjUmS-hwHjLwON17iHMQKEFY3l2JEIWhnMUx");'></div>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white dark:border-[#2a2918] rounded-full"></div>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-bold text-slayer-ink dark:text-white truncate">ThunderBreather</p>
+<p class="text-xs text-green-600 dark:text-green-400 font-medium truncate">In Menu</p>
+</div>
+<button class="opacity-0 group-hover:opacity-100 p-1.5 rounded-full bg-[#f4f4e6] dark:bg-[#3a3920] text-slayer-ink hover:text-primary transition-all">
+<span class="material-symbols-outlined text-sm font-bold">swords</span>
+</button>
+</div>
+<!-- Friend Item 2 -->
+<div class="flex items-center gap-3 p-2 rounded-lg hover:bg-[#f8f8f5] dark:hover:bg-[#32311d] transition-colors cursor-pointer group">
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-cover bg-center border-2 border-white dark:border-[#2a2918] shadow-sm" data-alt="Avatar of Tanjiro" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBjNz5urxhElhQn5k5brZwStZoboOxMnTNIUjovGNn9jvKOuuX8btlmnOdL9HoMc4KXyXIDBclItPQsyww7Mskzv0WzF_okjBqcWLm2UJzi3bDRxwIvdrtZIFOxMC5RT6wTcoRZxzoQT7HPgTZkN-xl5mIN0CcWG-3PXWFgvGKWmww7tJAXTVe39Nnaji6bAFaKMv5TD_0glw2NiABRXlxeaTvSAv-DyY6dVkRVZr7qDwKH-rrx_5FzxHNMK7XOx08ge45zZsHnABbs");'></div>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-primary border-2 border-white dark:border-[#2a2918] rounded-full"></div>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-bold text-slayer-ink dark:text-white truncate">SunDancer99</p>
+<p class="text-xs text-yellow-600 dark:text-yellow-400 font-medium truncate">In Match (4:20)</p>
+</div>
+<button class="opacity-0 group-hover:opacity-100 p-1.5 rounded-full bg-[#f4f4e6] dark:bg-[#3a3920] text-slayer-ink hover:text-primary transition-all">
+<span class="material-symbols-outlined text-sm font-bold">visibility</span>
+</button>
+</div>
+<!-- Friend Item 3 -->
+<div class="flex items-center gap-3 p-2 rounded-lg hover:bg-[#f8f8f5] dark:hover:bg-[#32311d] transition-colors cursor-pointer group">
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-cover bg-center border-2 border-white dark:border-[#2a2918] shadow-sm grayscale" data-alt="Avatar of Inosuke" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDUfjoJu1HbOLMFDoat20sOPBVGyHsEUUK3FjoeauI6tzySBdvlkZi2LpWtOyxprpsoie8JamnzUL8nrHqt1gadXaXq2TOk37IjsXZ2FT-BrjWaxosFeB3QxINGKS1eGruKGG9st0acRAnRNF5eTb1F7Nkc6Omc7FX6nexZVQaC9wmAQjdOHgpLslk6Vf4gXm5V2l3s5rQDVx_ZFzVFyCMgL7hsMQ6F4xX9yxRHp3SDHoXe0akc31yKKRhUSxuAdRUdjijz26CzMljB");'></div>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-gray-400 border-2 border-white dark:border-[#2a2918] rounded-full"></div>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-bold text-slayer-ink dark:text-white truncate">BoarRush</p>
+<p class="text-xs text-gray-400 font-medium truncate">Offline</p>
+</div>
+</div>
+<!-- Friend Item 4 -->
+<div class="flex items-center gap-3 p-2 rounded-lg hover:bg-[#f8f8f5] dark:hover:bg-[#32311d] transition-colors cursor-pointer group">
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-cover bg-center border-2 border-white dark:border-[#2a2918] shadow-sm" data-alt="Avatar of Nezuko" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAer7tKWlu3MWmso0_izZne7nc1-kqRj8MwRndVYTO-yZycbXjCkBX1Q78_wNGC4t8q97atQJtNF5tSTwi7NdTITly6ShzOH44mIESENpN7zj5iynKeoZflQWFwgEF_wUWhxCW8zCX85YWPFVXSrArX-SgnCI9s2OH5nwmHv4Djlr592gdbnjOvqu_3qcrAATyxqlRCNXgKWFsqXXm2sXopfJLFpF-2dUam7Z3xwWmDVc9fYDI391vRH9BAHr5U9y7QViaSnTO1CIN5");'></div>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white dark:border-[#2a2918] rounded-full"></div>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-bold text-slayer-ink dark:text-white truncate">BambooBox</p>
+<p class="text-xs text-green-600 dark:text-green-400 font-medium truncate">In Menu</p>
+</div>
+<button class="opacity-0 group-hover:opacity-100 p-1.5 rounded-full bg-[#f4f4e6] dark:bg-[#3a3920] text-slayer-ink hover:text-primary transition-all">
+<span class="material-symbols-outlined text-sm font-bold">swords</span>
+</button>
+</div>
+</div>
+<!-- Invite Button -->
+<button class="mt-4 w-full py-3 px-4 rounded-full border-2 border-dashed border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 font-bold text-sm hover:border-primary hover:text-slayer-ink dark:hover:text-primary transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">add</span>
+        Invite Friend
+      </button>
+</aside>
+<!-- Mobile Navigation (Bottom) - Only visible on small screens -->
+<div class="lg:hidden fixed bottom-0 left-0 w-full bg-white dark:bg-[#2a2918] border-t border-gray-200 dark:border-[#3a3920] px-6 py-3 flex justify-between items-center z-50">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined">swords</span>
+<span class="text-[10px] font-bold">Play</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-gray-400" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-gray-400" href="#">
+<span class="material-symbols-outlined">trophy</span>
+<span class="text-[10px] font-medium">Rank</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-gray-400" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-[10px] font-medium">Friends</span>
+</a>
+</div>
+</div>
+</body></html>

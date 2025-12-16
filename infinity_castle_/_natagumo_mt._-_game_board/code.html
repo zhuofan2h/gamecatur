@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Infinity Castle - Game Board</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+            extend: {
+                colors: {
+                "primary": "#f9f506",
+                "background-light": "#f8f8f5",
+                "background-dark": "#23220f",
+                "slayer-blue": "#1e293b",
+                "muzan-red": "#dc2626",
+                },
+                fontFamily: {
+                "display": ["Spline Sans", "sans-serif"],
+                "cinzel": ["Cinzel", "serif"],
+                "noto": ["Noto Sans JP", "sans-serif"],
+                },
+                borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+            },
+            },
+        }
+    </script>
+<style>
+        .chess-square {
+            aspect-ratio: 1;
+        }
+        .board-gradient {
+            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex flex-col font-display text-slate-900 dark:text-slate-100 selection:bg-primary selection:text-background-dark">
+<!-- Top Navigation -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-white/10 px-6 py-4 bg-background-light dark:bg-background-dark z-20 sticky top-0">
+<div class="flex items-center gap-4 text-slate-900 dark:text-slate-100">
+<div class="size-6 text-primary">
+<span class="material-symbols-outlined !text-3xl">token</span>
+</div>
+<h2 class="text-xl font-bold leading-tight tracking-tight font-cinzel">Infinity Castle</h2>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex gap-2">
+<button class="flex cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 bg-slate-200 dark:bg-white/10 text-slate-900 dark:text-slate-100 gap-2 text-sm font-bold min-w-0 px-4 hover:bg-slate-300 dark:hover:bg-white/20 transition-colors">
+<span class="material-symbols-outlined text-[20px]">3d_rotation</span>
+<span>View</span>
+</button>
+<button class="flex cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 bg-slate-200 dark:bg-white/10 text-slate-900 dark:text-slate-100 gap-2 text-sm font-bold min-w-0 px-4 hover:bg-slate-300 dark:hover:bg-white/20 transition-colors">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+</button>
+</div>
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-10 ring-2 ring-primary/50" data-alt="User avatar showing a minimalist demon slayer logo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAtxgvW2QCKVWjsOTKXfo6LCASbvDzSjohCxWvvnP0IWriPOyDyJRzVPE8ZbBywg2vLa9oO4edMUbwauScJFXppedmuvYFAjWJyIBB5oub2BEQm9vK_O1hkF8ZKe9edoTXcafhAiJ3Gl80B-6oYVICYQD8SzwjtImCzzWyp6AZqGwBvlq7qgmu57Z-RpEWJdVFS0EnPuOkhysCnqlMLx9LpErlOU1BarB1aSx9-uF0BSJz9m-QF33mOgvQJqG4WI-rlBHZhAgzqdVhG");'></div>
+</div>
+</header>
+<!-- Main Game Area -->
+<main class="flex-1 flex flex-col lg:flex-row h-full overflow-hidden relative">
+<!-- Left Sidebar: Corps Safe (Graveyard) -->
+<aside class="hidden lg:flex w-64 flex-col border-r border-slate-200 dark:border-white/10 bg-background-light/50 dark:bg-background-dark/50 backdrop-blur-sm p-6 overflow-y-auto">
+<div class="mb-6">
+<h3 class="text-slate-900 dark:text-slate-200 tracking-wider text-sm font-bold uppercase font-cinzel mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">shield</span>
+                    Corps Safe
+                </h3>
+<div class="grid grid-cols-4 gap-2">
+<!-- Captured White Pieces -->
+<div class="aspect-square rounded-full bg-slate-200 dark:bg-white/5 flex items-center justify-center relative group" title="Pawn">
+<span class="material-symbols-outlined text-slate-500 text-lg">accessibility_new</span>
+<div class="absolute -bottom-1 -right-1 bg-primary text-background-dark text-[10px] font-bold px-1.5 rounded-full">3</div>
+</div>
+<div class="aspect-square rounded-full bg-slate-200 dark:bg-white/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-500 text-lg">swords</span>
+</div>
+<div class="aspect-square rounded-full bg-slate-200 dark:bg-white/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-500 text-lg">fort</span>
+</div>
+</div>
+</div>
+<div class="mt-auto">
+<div class="p-4 rounded-xl bg-slate-200 dark:bg-white/5 border border-slate-300 dark:border-white/10">
+<h4 class="text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-2 font-noto">Match Status</h4>
+<p class="text-sm font-noto text-slate-700 dark:text-slate-300">White is in check.</p>
+</div>
+</div>
+</aside>
+<!-- Center: Game Board & Player HUDs -->
+<section class="flex-1 flex flex-col items-center justify-center p-4 lg:p-8 relative">
+<!-- Opponent HUD (Top) -->
+<div class="w-full max-w-[640px] flex justify-between items-end mb-4 px-2">
+<div class="flex items-center gap-4">
+<div class="relative">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-16 ring-2 ring-muzan-red shadow-[0_0_15px_rgba(220,38,38,0.4)]" data-alt="Menacing anime villain portrait stylized" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDrGixYC_dyAksOJpAL68RLuXyscLgMeB6yVGzxl1SXU9Jfu7Vxb09GE3bhh9uzvi7QoIIdrcqhLTVzpCb9kiQ5j4R-mWvw1n-13TTD-qcQ3eGRMFqyMh97yr-1T_7Txg13SVwtveBTDkMM6AyD1m-7jy_x_g15EDnGvz8-ubsDestpaCr2Q405lPSpS08KDKSUFavPfWw0Ic9Fv24KxgYlgl7JpEYFLgDzU0HyYnaWYZjoB606uZvfzrYoqR6v6skRhpwteJZiFOGp");'></div>
+<div class="absolute -bottom-1 -right-1 bg-background-dark text-muzan-red text-xs font-bold px-2 py-0.5 rounded-full border border-muzan-red/30">UPPER 1</div>
+</div>
+<div>
+<h3 class="text-lg font-bold font-cinzel leading-tight text-slate-900 dark:text-slate-100">Kokushibo</h3>
+<div class="flex gap-2 text-xs text-muzan-red font-medium items-center">
+<span class="material-symbols-outlined text-sm">sentiment_very_dissatisfied</span>
+<span>Demon King's Elite</span>
+</div>
+</div>
+</div>
+<!-- Opponent Timer -->
+<div class="bg-slate-200 dark:bg-white/10 px-4 py-2 rounded-xl border border-slate-300 dark:border-white/5 flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400">hourglass_top</span>
+<span class="font-mono text-xl font-bold tracking-widest text-slate-600 dark:text-slate-300">14:02</span>
+</div>
+</div>
+<!-- CHESS BOARD -->
+<div class="relative w-full max-w-[640px] aspect-square bg-slayer-blue rounded-lg shadow-2xl overflow-hidden border-8 border-slate-800 dark:border-[#1a190b]">
+<!-- Coordinates -->
+<div class="absolute inset-0 pointer-events-none z-10 p-1 flex flex-col justify-between text-[10px] font-bold text-slate-500 select-none">
+<div class="flex justify-between pl-6 pr-2"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span></div>
+<div class="flex flex-col justify-between h-full absolute left-1 top-6 bottom-2"><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span></div>
+</div>
+<!-- Board Grid -->
+<div class="grid grid-cols-8 grid-rows-8 w-full h-full">
+<!-- Row 8 -->
+<div class="chess-square bg-[#f0d9b5]"></div>
+<div class="chess-square bg-[#b58863]"></div>
+<div class="chess-square bg-[#f0d9b5]"></div>
+<div class="chess-square bg-[#b58863]"></div>
+<div class="chess-square bg-[#f0d9b5]"></div>
+<div class="chess-square bg-[#b58863]"></div>
+<div class="chess-square bg-[#f0d9b5]"></div>
+<div class="chess-square bg-[#b58863]"></div>
+<!-- Row 7 -->
+<div class="chess-square bg-[#b58863]"></div>
+<div class="chess-square bg-[#f0d9b5]"></div>
+<div class="chess-square bg-[#b58863]"></div>
+<div class="chess-square bg-[#f0d9b5]"></div>
+<div class="chess-square bg-[#b58863]"></div>
+<div class="chess-square bg-[#f0d9b5]"></div>
+<div class="chess-square bg-[#b58863]"></div>
+<div class="chess-square bg-[#f0d9b5]"></div>
+<!-- Row 6 -->
+<div class="chess-square bg-[#f0d9b5]"></div>
+<div class="chess-square bg-[#b58863]"></div>
+<div class="chess-square bg-[#f0d9b5]"></div>
+<div class="chess-square bg-[#b58863]"></div>
+<div class="chess-square bg-[#f0d9b5]"></div>
+<div class="chess-square bg-[#b58863]"></div>
+<div class="chess-square bg-[#f0d9b5]"></div>
+<div class="chess-square bg-[#b58863]"></div>
+<!-- Row 5 -->
+<div class="chess-square bg-[#b58863]"></div>
+<div class="chess-square bg-[#f0d9b5]"></div>
+<div class="chess-square bg-[#b58863]"></div>
+<div class="chess-square bg-[#f0d9b5]"></div>
+<div class="chess-square bg-[#b58863]"></div>
+<div class="chess-square bg-[#f0d9b5]"></div>
+<div class="chess-square bg-[#b58863]"></div>
+<div class="chess-square bg-[#f0d9b5]"></div>
+<!-- Row 4 -->
+<div class="chess-square bg-[#f0d9b5]"></div>
+<div class="chess-square bg-[#b58863]"></div>
+<div class="chess-square bg-[#f0d9b5]"></div>
+<div class="chess-square bg-[#b58863]"></div>
+<div class="chess-square bg-[#f0d9b5]"></div>
+<div class="chess-square bg-[#b58863]"></div>
+<div class="chess-square bg-[#f0d9b5]"></div>
+<div class="chess-square bg-[#b58863]"></div>
+<!-- Row 3 (Selection Example) -->
+<div class="chess-square bg-[#b58863]"></div>
+<div class="chess-square bg-[#f0d9b5]"></div>
+<div class="chess-square bg-[#b58863]"></div>
+<div class="chess-square bg-[#f0d9b5] relative">
+<!-- Selected Piece Highlight -->
+<div class="absolute inset-0 bg-primary/40 ring-inset ring-4 ring-primary animate-pulse z-10"></div>
+<!-- Piece (Knight) -->
+<div class="absolute inset-0 flex items-center justify-center z-20">
+<span class="material-symbols-outlined text-4xl lg:text-5xl text-slate-900 drop-shadow-md">person_celebrate</span>
+</div>
+</div>
+<div class="chess-square bg-[#b58863] relative cursor-pointer hover:bg-primary/20 transition-colors">
+<!-- Possible Move Indicator -->
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="size-4 rounded-full bg-primary/60"></div>
+</div>
+</div>
+<div class="chess-square bg-[#f0d9b5]"></div>
+<div class="chess-square bg-[#b58863]"></div>
+<div class="chess-square bg-[#f0d9b5]"></div>
+<!-- Row 2 -->
+<div class="chess-square bg-[#f0d9b5]"></div>
+<div class="chess-square bg-[#b58863]"></div>
+<div class="chess-square bg-[#f0d9b5]"></div>
+<div class="chess-square bg-[#b58863]"></div>
+<div class="chess-square bg-[#f0d9b5]"></div>
+<div class="chess-square bg-[#b58863]"></div>
+<div class="chess-square bg-[#f0d9b5]"></div>
+<div class="chess-square bg-[#b58863]"></div>
+<!-- Row 1 -->
+<div class="chess-square bg-[#b58863]"></div>
+<div class="chess-square bg-[#f0d9b5]"></div>
+<div class="chess-square bg-[#b58863]"></div>
+<div class="chess-square bg-[#f0d9b5]"></div>
+<div class="chess-square bg-[#b58863]"></div>
+<div class="chess-square bg-[#f0d9b5]"></div>
+<div class="chess-square bg-[#b58863]"></div>
+<div class="chess-square bg-[#f0d9b5]"></div>
+</div>
+</div>
+<!-- Player HUD (Bottom) -->
+<div class="w-full max-w-[640px] flex justify-between items-start mt-4 px-2">
+<div class="flex items-center gap-4">
+<div class="relative">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-16 ring-4 ring-primary shadow-[0_0_20px_rgba(249,245,6,0.4)]" data-alt="Anime swordsman with yellow hair avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBvpWCTEsHEHbsYQo14BGRvJrAZd1GbbiG-rzlxoNEFiksvAVcz-MygZXUHJqA33ZNHeOYZVPuhVcUYXcdZWav3N8ofkcuhtZr7ALE3q2hCCjozEyjyWSyFJz91dYnhbQfhJFHlpJRyqjBuq98nGG5m6tqLexB9Y0xvhCYUze2IFDTIAPVrgkVax7p0QXstIsfj950bIrq2glJNG6i6497_mjcOcO3Ql-4UCvR2JBGudryMvTjvC3vCWpwaPfcnB7VtcGB23D-8OUx3");'></div>
+<div class="absolute -bottom-1 -right-1 bg-background-dark text-primary text-xs font-bold px-2 py-0.5 rounded-full border border-primary/30">HASHIRA</div>
+</div>
+<div>
+<h3 class="text-lg font-bold font-cinzel leading-tight text-slate-900 dark:text-slate-100">Zenitsu</h3>
+<div class="flex gap-2 text-xs text-primary font-medium items-center">
+<span class="material-symbols-outlined text-sm">bolt</span>
+<span>Thunder Breather</span>
+</div>
+</div>
+</div>
+<!-- Player Timer (Active) -->
+<div class="bg-primary text-background-dark px-4 py-2 rounded-xl flex items-center gap-3 shadow-[0_0_15px_rgba(249,245,6,0.3)] transform scale-105 transition-all">
+<span class="material-symbols-outlined animate-spin">hourglass_bottom</span>
+<span class="font-mono text-xl font-bold tracking-widest">13:45</span>
+</div>
+</div>
+<!-- Action Bar Floating -->
+<div class="absolute bottom-8 lg:bottom-12 flex gap-3">
+<button class="flex items-center gap-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-6 py-3 rounded-full font-bold shadow-lg hover:scale-105 transition-transform">
+<span class="material-symbols-outlined">flag</span>
+                    Resign
+                 </button>
+<button class="flex items-center gap-2 bg-slate-200 dark:bg-white/10 backdrop-blur-md text-slate-900 dark:text-white px-6 py-3 rounded-full font-bold shadow-lg hover:bg-slate-300 dark:hover:bg-white/20 transition-colors">
+<span class="material-symbols-outlined">handshake</span>
+                    Draw
+                 </button>
+</div>
+</section>
+<!-- Right Sidebar: Demons Slain (Graveyard & Moves) -->
+<aside class="hidden lg:flex w-72 flex-col border-l border-slate-200 dark:border-white/10 bg-background-light/50 dark:bg-background-dark/50 backdrop-blur-sm p-6">
+<!-- Graveyard -->
+<div class="mb-8">
+<h3 class="text-slate-900 dark:text-slate-200 tracking-wider text-sm font-bold uppercase font-cinzel mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-muzan-red text-lg">skull</span>
+                    Demons Slain
+                </h3>
+<div class="grid grid-cols-4 gap-2">
+<!-- Captured Black Pieces -->
+<div class="aspect-square rounded-full bg-slate-800 flex items-center justify-center relative shadow-inner">
+<span class="material-symbols-outlined text-muzan-red text-lg">person</span>
+</div>
+<div class="aspect-square rounded-full bg-slate-800 flex items-center justify-center relative shadow-inner">
+<span class="material-symbols-outlined text-muzan-red text-lg">person</span>
+</div>
+<div class="aspect-square rounded-full bg-slate-800 flex items-center justify-center relative shadow-inner">
+<span class="material-symbols-outlined text-muzan-red text-lg">person</span>
+</div>
+</div>
+</div>
+<!-- Move History -->
+<div class="flex-1 flex flex-col min-h-0">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-slate-900 dark:text-slate-200 tracking-wider text-sm font-bold uppercase font-cinzel flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">history_edu</span>
+                        Scrolls
+                    </h3>
+</div>
+<div class="flex-1 overflow-y-auto pr-2 custom-scrollbar">
+<table class="w-full text-sm font-noto">
+<thead class="sticky top-0 bg-background-light dark:bg-background-dark/95 backdrop-blur z-10 text-xs uppercase text-slate-500">
+<tr>
+<th class="pb-2 text-left font-normal w-12">#</th>
+<th class="pb-2 text-left font-normal">White</th>
+<th class="pb-2 text-left font-normal">Black</th>
+</tr>
+</thead>
+<tbody class="text-slate-700 dark:text-slate-300">
+<tr class="border-b border-slate-200 dark:border-white/5 hover:bg-white/5 transition-colors">
+<td class="py-2 text-slate-500">1</td>
+<td class="py-2 font-medium">e4</td>
+<td class="py-2">e5</td>
+</tr>
+<tr class="border-b border-slate-200 dark:border-white/5 hover:bg-white/5 transition-colors">
+<td class="py-2 text-slate-500">2</td>
+<td class="py-2 font-medium">Nf3</td>
+<td class="py-2">Nc6</td>
+</tr>
+<tr class="border-b border-slate-200 dark:border-white/5 hover:bg-white/5 transition-colors">
+<td class="py-2 text-slate-500">3</td>
+<td class="py-2 font-medium">Bb5</td>
+<td class="py-2">a6</td>
+</tr>
+<tr class="border-b border-slate-200 dark:border-white/5 hover:bg-white/5 transition-colors">
+<td class="py-2 text-slate-500">4</td>
+<td class="py-2 font-medium">Ba4</td>
+<td class="py-2">Nf6</td>
+</tr>
+<tr class="bg-primary/10 border-l-2 border-primary">
+<td class="py-2 text-primary pl-2">5</td>
+<td class="py-2 font-bold text-primary">O-O</td>
+<td class="py-2 text-slate-400 italic">...</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</aside>
+<!-- Mobile Drawer Handles (Visible only on small screens) -->
+<div class="lg:hidden absolute bottom-24 left-4 right-4 flex justify-between px-4 z-20">
+<button class="bg-background-dark/80 text-primary p-3 rounded-full backdrop-blur-md border border-white/10 shadow-lg">
+<span class="material-symbols-outlined">shield</span>
+</button>
+<button class="bg-background-dark/80 text-muzan-red p-3 rounded-full backdrop-blur-md border border-white/10 shadow-lg">
+<span class="material-symbols-outlined">history_edu</span>
+</button>
+</div>
+</main>
+</body></html>
